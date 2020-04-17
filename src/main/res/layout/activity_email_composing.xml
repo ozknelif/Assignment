@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EmailComposing">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/editSendAnddress"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:hint="Send to"
+            android:inputType="textEmailAddress"
+            android:lineSpacingExtra="8sp"
+            android:text=""
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editCC"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:hint="Cc"
+            android:inputType="textEmailAddress"
+            android:lineSpacingExtra="8sp"
+            android:text=""
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editBCC"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:hint="Bcc"
+            android:inputType="textEmailAddress"
+            android:lineSpacingExtra="8sp"
+            android:text=""
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTopic"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:ems="10"
+            android:hint="Subject"
+            android:inputType="textPersonName|textEmailSubject"
+            android:lineSpacingExtra="8sp"
+            android:text=""
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editContent"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:autoText="false"
+            android:ems="10"
+            android:hint="Text"
+            android:inputType="textMultiLine"
+            android:lineSpacingExtra="8sp"
+            android:singleLine="false"
+            android:text=""
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/attachmentsBttn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Attachments" />
+
+        <Button
+            android:id="@+id/emailSendBttn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="SEND" />
+
+        <TextView
+            android:id="@+id/attachmentsShow"
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:hint="added attachments"/>
+    </LinearLayout>
+</LinearLayout>

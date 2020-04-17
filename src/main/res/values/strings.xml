@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Hello</string>
+    <string name="user_name_hint">User Name</string>
+    <string name="password_hint">Password</string>
+    <string-array name="gender_array">
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+    <string-array name="app_mode_array">
+        <item>Light Mode</item>
+        <item>Dark Mode</item>
+    </string-array>
+</resources>
