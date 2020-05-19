@@ -1,8 +1,14 @@
 package com.example.uygulama2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.Button;
@@ -22,6 +28,13 @@ public class MainActivity extends AppCompatActivity {
     Person p4 = new Person("fatma", "444", "F", "dark", "57", "170", "21");
     static ArrayList<Person> users = new ArrayList<>();
 
+    public static final int MY_PERMISSIONS_REQUEST_READ_PHONE_STATE = 999;
+    public static final int MY_PERMISSIONS_REQUEST_READ_PHONE_NUMBER = 998;
+    public static final int MY_PERMISSIONS_REQUEST_READ_CALL_LOG = 997;
+    public static final int MY_PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS = 996;
+    public static final int MY_PERMISSIONS_REQUEST_PROCESS_RECEIVE_SMS = 995;
+    public static final int MY_PERMISSIONS_REQUEST_PROCESS_READ_SMS = 994;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +46,34 @@ public class MainActivity extends AppCompatActivity {
         final EditText username = findViewById(R.id.user_name_text);
         final EditText password = findViewById(R.id.password_text);
         final Button loginButton = findViewById(R.id.login_button);
+
+        if (ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.READ_PHONE_STATE)!= PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_PHONE_STATE},MY_PERMISSIONS_REQUEST_READ_PHONE_STATE);
+        }
+        if(ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.READ_PHONE_NUMBERS)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_PHONE_NUMBERS},MY_PERMISSIONS_REQUEST_READ_PHONE_NUMBER);
+        }
+        if(ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.READ_CALL_LOG)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_CALL_LOG},MY_PERMISSIONS_REQUEST_READ_CALL_LOG);
+        }
+        if(ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.PROCESS_OUTGOING_CALLS)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.PROCESS_OUTGOING_CALLS},MY_PERMISSIONS_REQUEST_PROCESS_OUTGOING_CALLS);
+        }
+        if (ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(MainActivity.this , new String[]{Manifest.permission.RECEIVE_SMS}, 0);
+        }
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.RECEIVE_SMS)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.RECEIVE_SMS},MY_PERMISSIONS_REQUEST_PROCESS_RECEIVE_SMS);
+        }
+        if(ContextCompat.checkSelfPermission(MainActivity.this , Manifest.permission.READ_SMS)!= PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.READ_SMS},MY_PERMISSIONS_REQUEST_PROCESS_READ_SMS);
+
+        }
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.RECEIVE_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.RECEIVE_SMS}, 995);}
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

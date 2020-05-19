@@ -18,6 +18,36 @@ public class Menu extends AppCompatActivity {
         final Button sharedPreferenceButton = findViewById(R.id.shared_button);
         final Button emailButton = findViewById(R.id.emailSendBttn);
         final Button takeNotesButton = findViewById(R.id.take_notes_button);
+        final Button threadButton = findViewById(R.id.threadButton);
+        final Button setAlarmButton = findViewById(R.id.alarmButton);
+        final Button locationButton = findViewById(R.id.locationButton);
+        final Button detectButton = findViewById(R.id.detectButton);
+
+        detectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent detIntent = new Intent(Menu.this, DetectMovement.class);
+                startActivity(detIntent);
+            }
+        });
+        locationButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent locationIntent = new Intent(Menu.this, GetLocation.class);
+                startActivity(locationIntent);
+            }
+        });
+        setAlarmButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent alarmIntent = new Intent(Menu.this, AlarmActivity.class);
+                startActivity(alarmIntent);
+            }
+        });
+        threadButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent threadIntent = new Intent(Menu.this, ThreadActivity.class);
+                startActivity(threadIntent);
+            }
+        });
         getSensorButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent lightSensorIntent = new Intent(Menu.this, LightSensor.class);
